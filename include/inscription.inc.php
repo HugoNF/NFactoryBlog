@@ -24,7 +24,7 @@ if(isset($_POST["formulaire"])) {
         include("./include/formInscription.php");
     }
     else {
-        $connexion = mysqli_connect("localhost", "NFactoryBlog", "NFactoryBlog", "nfactoryblog");
+        $connexion = mysqli_connect("localhost", "root", "", "nfactoryblog");
         if (!$connexion) {
             die("Erreur MySQL " . mysqli_connect_errno() . " : " . mysqli_connect_error());
         }
