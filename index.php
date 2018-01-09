@@ -1,3 +1,6 @@
+<?php
+include_once("./function/callpage.php");
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,7 +12,7 @@
 <body>
 <div id="main">
     <?php
-    include_once("./function/callpage.php");
+    callpage();
     ?>
 </div>
 </body>

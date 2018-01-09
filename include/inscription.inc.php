@@ -29,14 +29,21 @@ if(isset($_POST["formulaire"])) {
     }
 
     else {
-        echo("<p>Pas d'erreurs</p>");
-    }
-
-}
-
+        $connexion = mysqli_connect("localhost", "root", "", "NFactoryBlog");
+        if (!$connexion) {
+            die("Erreur MySQL " . mysqli_connect_errno() . " : " . mysqli_connect_error());
+        }
+        else {
+            $requete = "INSERT INTO t_users (ID_USER, USERNAME, USERFNAME,
+                        USERMAIL, USERPASSWORD, USERDATEINS, T_ROLES_ID_ROLE)
+                        VALUES (NULL, '$nom', '$prenom', '$mail', '$mdp', NULL, 5);";
+            mysqli_query($connexion, $requete);
+            mysqli_close($connexion);
+        }
 else {
     echo("Je viens d'ailleurs");
     include("./include/formInscription.php");
+}
 }
 
 
