@@ -1,15 +1,10 @@
-<h1>Inscription</h1>
 <?php
 if(isset($_POST["formulaire"])) {
     $tabErreur = array();
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
     $mail = $_POST['mail'];
     $mdp = $_POST['mdp'];
-    if($_POST["nom"] == "")
-        array_push($tabErreur, "Veuillez saisir votre nom");
-    if($_POST["prenom"] == "")
-        array_push($tabErreur, "Veuillez saisir votre prénom");
+
+
     if($_POST["mail"] == "")
         array_push($tabErreur, "Veuillez saisir votre e-mail");
     if($_POST["mdp"] == "")
@@ -21,13 +16,12 @@ if(isset($_POST["formulaire"])) {
         }
         $message .= "</ul>";
         echo($message);
-        include("./include/formInscription.php");
+        include("./include/login.inc.php");
     }
     else {
         $connexion = mysqli_connect("localhost", "root", "", "nfactoryblog");
-        $requete = "INSERT INTO t_users (ID_USER, USERNAME, USERFNAME,
-                  USERMAIL, USERPASSWORD, USERDATEINS, T_ROLES_ID_ROLE)
-                  VALUES (NULL, '$nom', '$prenom', '$mail', '$mdp', NULL, 5);";
+        $mdp=sha1($_POST['#mdp'])
+        $requete = "SELECT * FROM t_users WHERE USERMAIL='$mail' AND USERPASSWORD='$mdp'";
         mysqli_query($connexion, $requete);
         mysqli_close($connexion);
 
@@ -35,5 +29,5 @@ if(isset($_POST["formulaire"])) {
 }
 else {
     echo("Je viens d'ailleurs");
-    include("./include/formInscription.php");
+    include("./include/login.inc.php");
 }
