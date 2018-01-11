@@ -1,4 +1,5 @@
-<?php
-   echo("<p>Je suis un accueil</p>");
-   echo($_GET['page']);
+<main>
+<?php 
+echo("<h1>Accueil</h1>")
 ?>
+</main>
