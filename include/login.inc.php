@@ -1,20 +1,11 @@
-<form>
-<div class="form-group">
-    <label class="col-md-4 control-label" for="textinput">Email : </label>
-    <div class="col-md-4">
-        <input id="email" name="email" type="text" placeholder="placeholder" class="form-control input-md">
-
+<form method="post" action="#">
+    <div class="email">
+        <label for="email">Email : </label><input type="email" name="email">
     </div>
-</div>
-<div class="form-group">
-    <label class="col-md-4 control-label" for="mdp">Mot de passe : </label>
-    <div class="col-md-4">
-        <input id="mdp" name="mdp" type="password" placeholder="placeholder" class="form-control input-md">
+    <div class="password">
+        <label for="password">Mot de passe : </label><input type="password" name="password">
     </div>
-</div>
-<div class="form-group">
-    <div class="col-md-4">
-        <button id="singlebutton" name="singlebutton" class="btn btn-primary">connection</button>
+    <div class="bouton">
+        <input type="submit" value="Connexion" name="formulaire2">
     </div>
-</div>
 </form>
