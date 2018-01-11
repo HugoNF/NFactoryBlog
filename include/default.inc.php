@@ -1,1 +1,3 @@
-Ta gueule Dodolph
+<?php
+echo("Erreur");
+?>

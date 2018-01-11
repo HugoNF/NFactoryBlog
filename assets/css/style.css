@@ -1,37 +1,57 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+body {
+    background-color: whitesmoke;
+}
+
+ul {
+    margin:0;
+    padding:0;
+}
+
 ul li {
-    display: inline-block;
+    display:inline-block;
+    margin-left: 30px;
 }
 
 ul li a {
     text-decoration: none;
-    color: rgb(40, 179, 214);
+    color:black;
 }
 
-ul li:hover {
-    background: linear-gradient(blueviolet,rgb(22, 3, 3),rgb(17, 24, 2));
-    border: 5px;
-    border: 5px solid rgb(184, 48, 143) ;
+ul li a:hover {
+    color:gray;
 }
 
-ul {
-    color: white;
+div#main {
+    width:600px;
+    margin:auto;
     text-align: center;
+    
 }
 
-body {
-    font-family: 'Roboto Condensed', sans-serif;
-    background: rgb(77, 65, 88);
-    width: 500px;
-    height: auto;  
-    margin: auto;
-}
-p {
-    text-align: center;
-    margin-left: 40px;
-    color: white;
+footer {
+    background-color: grey;
 }
 
-form {
-    margin-left: 200px;
+main {
+    min-height: 200px;
+}
+
+.nom {
+    height:30px;
+}
+
+.prenom {
+    height:30px;
+}
+
+.email {
+    height:30px;
+}
+
+.password {
+    height:30px;
+}
+
+input {
+    border-radius: 3px;
 }

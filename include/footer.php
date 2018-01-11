@@ -1,6 +1,5 @@
-
 <footer>
-   <p>
-   &copy; <?php echo(date("M Y"))
-   ?></p>
+<?php 
+echo("<p>&copy; NFactory School</p>");
+?>
 </footer>

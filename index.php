@@ -1,19 +1,30 @@
 <?php
-include_once("./function/callpage.php");
+include_once("./function/callPage.php");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link href="./assets/css/style.css" type="text/css" rel="stylesheet" />
-    <link href="./assets/css/normalize.css" type="text/css" rel="stylesheet" />
+    
+    
     <title>Blog</title>
+
+
+
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+   
 </head>
 <body>
-<div id="main">
+    <div id="main">
     <?php
-    callpage();
+    callPage();
+
+        
     ?>
-</div>
+    </div>
 </body>
 </html>
