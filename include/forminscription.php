@@ -1,46 +1,44 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./assets/css/normalize.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Blog</title>
-</head>
-<body>
-<form class="form-horizontal">
-<div class="form-group">
-  <label class="col-md-4 control-label" for="nom">Nom : </label>  
-  <div class="col-md-4">
-  <input id="nom" name="nom" type="text" placeholder="placeholder" class="form-control input-md">  
-  </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Prénom : </label>  
-  <div class="col-md-4">
-  <input id="prenom" name="prénom" type="text" placeholder="placeholder" class="form-control input-md">
-</div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Email : </label>  
-  <div class="col-md-4">
-  <input id="email" name="email" type="text" placeholder="placeholder" class="form-control input-md">
-    
-  </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label" for="mdp">Mot de passe : </label>
-  <div class="col-md-4">
-    <input id="mdp" name="mdp" type="password" placeholder="placeholder" class="form-control input-md">
-  </div>
-</div>
-<div class="form-group">
-  <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-primary">S'inscrire</button>
-  </div>
-</div>
-</form>
+<?php
+echo("<h1>Inscription</h1>");
+if(isset($_POST['formulaire'])){
+    $tabErreur = array();
+    $nom=$_POST["nom"];
+    $prenom=$_POST["prenom"];
+    $email=$_POST["email"];
+    $mdp=$_POST["password"];
 
-</body>
-</html>
+    if($_POST["nom"] == ""){
+        array_push($tabErreur,"Veuillez saisir votre nom");
+    }
+    if($_POST["prenom"] == ""){
+        array_push($tabErreur,"Veuillez saisir votre prénom");
+    }
+    if($_POST["email"] == ""){
+        array_push($tabErreur,"Veuillez saisir votre email");
+    }
+    if($_POST["password"] == ""){
+        array_push($tabErreur,"Veuillez saisir votre mot de passe");
+    }
+    if(count($tabErreur)!=0){
+        $message="<ul>";
+        for($i=0;$i<count($tabErreur);$i++){
+            $message .= "<li>".$tabErreur[$i]."</li>";
+        }
+        $message .= "</ul>";
+        echo($message);
+        include("./include/forminscription.php");
+    }else {
+        $connexion=mysqli_connect("localhost","root","","NFactoryBlog");
+        $mdp=sha1($_POST['password']);
+        $requete = "INSERT INTO t_users (ID_user, USERNAME, USERFNAME, USERMAIL, USERPASSWORD,USERDATEINS,T_ROLES_ID_ROLE) VALUES (NULL, '$nom', '$prenom','$email', '$mdp',NULL,5)";
+        mysqli_query($connexion,$requete);
+        mysqli_close($connexion);
+    }
+
+} else {
+    echo("Je viens d'ailleurs");
+    include("./include/forminscription.php");
+}
+
+?>
+
